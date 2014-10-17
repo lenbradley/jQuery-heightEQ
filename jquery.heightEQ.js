@@ -57,6 +57,11 @@
             var currentRow  = 0;
             var elements    = 0;
             var rows        = [];
+            var border_box  = false;
+
+            if ( parent.find( options.selector ).first().css('box-sizing') == 'border-box' ) {
+                border_box = true;
+            }
             
             // Get elements and store in array to iterate over later
             parent.find( options.selector ).each( function () {
@@ -91,7 +96,12 @@
                     $(element).css( 'height', '' );
                     
                     // Get current elements height
-                    elementHeight = Math.ceil( $(element).outerHeight() );
+                    if ( border_box ) {
+                        elementHeight = Math.ceil( $(element).outerHeight() );
+                    } else {
+                        elementHeight = Math.ceil( $(element).height() );
+                    }
+                    
                     
                     // Check if current elements height is greater that previous element heights
                     if ( elementHeight > maxHeight ) {

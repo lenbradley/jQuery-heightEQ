@@ -49,7 +49,7 @@ body {
 .row > [class^='col-'] {
     float: left;
     margin: 0 1% 2%;
-    padding: 2%;
+    padding: 10px;
     list-style: none;
     background: #eee;
     text-align: center;
