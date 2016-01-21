@@ -9,12 +9,17 @@
     <script>
     jQuery(document).ready( function($) {
         $('.row').heightEQ();
+
+        $('#reinit').on( 'click', function(e) {
+            e.preventDefault();
+            $('.row').heightEQ();
+        });
     });
     </script>
 </head>
 <body>
-    
-<ul class="row">   
+
+<ul class="row">
     <li class="col-12">
         <h2>New Column</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, saepe officia assumenda culpa voluptas facere aspernatur numquam vitae dolor doloremque fuga recusandae quis dignissimos iste totam. Commodi suscipit consectetur ipsa!</p>
@@ -66,5 +71,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusantium, saepe officia assumenda culpa voluptas facere aspernatur numquam vitae dolor doloremque fuga recusandae quis dignissimos iste totam. Commodi suscipit consectetur ipsa!</p>
     </li>
 </ul>
+
+<p><a href="#" id="reinit">Reinitialize heightEQ</a></p>
 </body>
 </html>
