@@ -1,7 +1,7 @@
 /*!
  * jQuery Height Equalizer
  * Author: Len Bradley @ http://www.ninesphere.com
- * Version: 1.2.0
+ * Version: 1.2.1
  * Licensed under the MIT license
  *
  * Usage:
@@ -60,7 +60,7 @@
                 }
 
                 // Define variables to use
-                var parentWidth = parent.innerWidth();
+                var parentWidth = $(parent)[0].getBoundingClientRect().width;
                 var childWidth  = 0;
                 var calcWidth   = 0;
                 var currentRow  = 0;
@@ -76,7 +76,7 @@
                 parent.find( options.selector ).each( function () {
 
                     // Define variables to use for calculating widths
-                    childWidth  = $(this).outerWidth();
+                    childWidth  = $(this)[0].getBoundingClientRect().width;
                     calcWidth   = calcWidth + childWidth;
 
                     // Check if row width breaks - if so create new row
@@ -89,6 +89,7 @@
                     if ( typeof rows[currentRow] === 'undefined' ) {
                         rows[currentRow] = [];
                     }
+
                     rows[currentRow][elements] = $(this);
                     elements++;
                 });
@@ -110,7 +111,6 @@
                         } else {
                             elementHeight = Math.ceil( $(element).height() );
                         }
-
 
                         // Check if current elements height is greater that previous element heights
                         if ( elementHeight > maxHeight ) {
